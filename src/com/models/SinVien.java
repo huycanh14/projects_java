@@ -1,11 +1,11 @@
-public class SinVien extends Nguoi{
+class SinhVien extends Nguoi{
 
     private String masv;
     private String malop;
     private String hedaotao;
-    private float diem1;
-    private float diem2;
-    private float diem3;
+    private float diem1 = 0;
+    private float diem2 = 0;
+    private float diem3 = 0;
     private float diemtb;
 
     /*
@@ -70,17 +70,17 @@ public class SinVien extends Nguoi{
     }
 
     // Phương thức khởi tạo
-    public SinVien(){
+    public SinhVien(){
         super("", "Nữ", 2020);
     }
 
-    public SinVien(String hoTen, String gioiTinh, String maSv, String heDaoTao){
+    public SinhVien(String hoTen, String gioiTinh, String maSv, String heDaoTao){
         super(hoTen, gioiTinh, 2020);
         this.masv = maSv;
         this.hedaotao = heDaoTao;
     }
 
-    public SinVien(SinVien sv){
+    public SinhVien(SinhVien sv){
         super(sv.hoten, sv.gioitinh, sv.namsinh);
         this.masv = sv.masv;
         this.malop = sv.malop;
@@ -94,7 +94,7 @@ public class SinVien extends Nguoi{
     @Override
     public void xuatThongTinCaNhan() {
         System.out.println("Sinh viên có thông tin là:");
-        System.out.println(String.format("\t Mã sinh viên: %s - Họ tên: %s", this.masv, super.hoten));
-        System.out.println(String.format("\t Giới tính: %s - Hệ đào tạo: %s", super.gioitinh, this.hedaotao));
+        System.out.println(String.format("\t Mã sinh viên: %s - Họ tên: %s", this.getMasv(), super.hoten));
+        System.out.println(String.format("\t Giới tính: %s - Hệ đào tạo: %s - Mã lớp: %s", super.gioitinh, this.getHedaotao(), this.getMalop()));
     }
 }
