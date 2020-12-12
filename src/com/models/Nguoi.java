@@ -1,4 +1,4 @@
-public abstract  class Nguoi {
+public abstract class Nguoi {
 
     /*
         abstract không có tính triển khai, chỉ có tính trừu tượng
@@ -8,6 +8,7 @@ public abstract  class Nguoi {
     protected String hoten;
     protected String gioitinh;
     protected int namsinh;
+
     public Nguoi() {
     }
 

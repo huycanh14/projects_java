@@ -5,8 +5,10 @@ import java.util.Comparator;
 public class QuanLySinhVien implements QuanLyDiem, Comparator<SinhVien>{
     private ArrayList<SinhVien> sinhViens = new ArrayList<SinhVien>();
     @Override
-    public float tinhDiemTrungBinh(SinhVien sv) {
-        return (float) (sv.getDiem1() * 0.1 + sv.getDiem2() * 0.3 + sv.getDiem3() * 0.6);
+    public void tinhDiemTrungBinh() {
+        for(SinhVien sv : sinhViens) {
+            sv.setDiemtb((float) (sv.getDiem1() * 0.1 + sv.getDiem2() * 0.3 + sv.getDiem3() * 0.6));
+        }
     }
 
     @Override
@@ -24,12 +26,12 @@ public class QuanLySinhVien implements QuanLyDiem, Comparator<SinhVien>{
 
     @Override
     public boolean themSinhVien(SinhVien sv) {
-        int dem = 0;
         for (SinhVien item : this.sinhViens){
-            if(item.getMasv() == sv.getMasv()){
+            if(item.getMasv() .compareTo(sv.getMasv()) == 0 ){
                 return false;
             }
         }
+        if (sv.getDiem1() > 10 || sv.getDiem2() > 10 || sv.getDiem3() > 10 ||sv.getDiem1() < 0 || sv.getDiem2() < 0 || sv.getDiem3() < 0 )return false ;
         sinhViens.add(sv);
         return true;
     }
@@ -37,7 +39,7 @@ public class QuanLySinhVien implements QuanLyDiem, Comparator<SinhVien>{
     @Override
     public void xoaSinhVien(String masv) {
         for(SinhVien item: sinhViens){
-            if(item.getMasv() == masv){
+            if(item.getMasv().compareTo(masv) == 0){
                 sinhViens.remove(item);
                 break;
             }
@@ -47,7 +49,8 @@ public class QuanLySinhVien implements QuanLyDiem, Comparator<SinhVien>{
     @Override
     public int compare(SinhVien o1, SinhVien o2) {
         // Nếu '>' => return 1, '<' => return -1, '==' return 0
-        return o1.getDiemtb() > o2.getDiemtb() ? 1 : -1;
+        // sắp xếp giảm dần phải đổi người lại
+        return o1.getDiemtb() > o2.getDiemtb() ? -1 : 1;
     }
 
 }

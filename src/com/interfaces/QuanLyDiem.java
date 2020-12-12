@@ -1,6 +1,6 @@
 
 public interface QuanLyDiem {
-    float tinhDiemTrungBinh(SinhVien sv);
+    void tinhDiemTrungBinh();
     void hienThongTin();
     void sapXepGiamDanTheoDiemTrungBinh();
     boolean themSinhVien(SinhVien sv);
